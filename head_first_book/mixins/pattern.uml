@@ -1,0 +1,40 @@
+@startuml
+abstract class "FlyBehavior"
+FlyBehavior : {abstract} fly()
+class "FlyWithWings"
+FlyWithWings : +fly()
+class "FlyNoWay"
+FlyNoWay : +fly()
+
+abstract class "QuackBehavior"
+QuackBehavior : {abstract} quack()
+class Quack
+Quack : +quack()
+class Squeak
+Squeak : +quack()
+class MuteQuack
+MuteQuack : +quack()
+
+class Duck {
+FlyBehavior fly_behavior
+QuackBehavior quack_behavior
+{abstract} +display()
++swim()
++set_quack_behavior()
++set_fly_behavior()
++perform_quack()
++perform_fly()
+}
+
+' Связи
+FlyNoWay --|> FlyBehavior
+FlyWithWings --|> FlyBehavior
+
+Quack --|> QuackBehavior
+Squeak --|> QuackBehavior
+MuteQuack --|> QuackBehavior
+
+Duck -up-* FlyBehavior
+Duck -up-* QuackBehavior
+
+@enduml

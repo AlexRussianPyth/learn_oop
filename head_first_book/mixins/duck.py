@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 
 
 class FlyBehavior(ABC):
-
     @abstractmethod
     def fly(self):
         pass
@@ -53,6 +52,12 @@ class Duck:
 
     def perform_fly(self):
         self.fly_behavior.fly()
+
+    def set_fly_behavior(self, new_fly_behavior):
+        self.fly_behavior = new_fly_behavior
+
+    def set_quack_behavior(self, new_quack_behavior):
+        self.quack_behavior = new_quack_behavior
 
     @abstractmethod
     def display(self):
