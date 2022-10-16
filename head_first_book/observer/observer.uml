@@ -1,2 +1,64 @@
 @startuml
+interface Subject #LightGreen {
+{abstract} register_observer()
+{abstract} remove_observer()
+{abstract} notify_observers()
+}
+
+class WeatherData #LightGreen {
+register_observer()
+remove_observer()
+notify_observers()
+
+get_temperature()
+get_humidity()
+get_pressure()
+measurements_changed()
+}
+
+interface Observer #LightBlue {
+{abstract} update()
+}
+
+class CurrentConditionsDisplay #LightBlue {
++update()
++display()
+}
+
+class StatisticsDisplay #LightBlue {
++update()
++display()
+}
+
+interface Display {
+{abstract} display()
+}
+
+class ForecastDisplay #LightBlue {
++update()
++display()
+}
+
+class ThirdPartyDisplay #LightBlue {
++update()
++display()
+}
+
+
+' Связи
+WeatherData .up.|> Subject
+Subject -left-> Observer  : Субъект
+
+CurrentConditionsDisplay -right-> WeatherData
+
+CurrentConditionsDisplay .up.|> Observer
+StatisticsDisplay .up.|> Observer
+ForecastDisplay .up.|> Observer
+ThirdPartyDisplay .up.|> Observer
+
+CurrentConditionsDisplay ..|> Display
+StatisticsDisplay ..|> Display
+ForecastDisplay ..|> Display
+ThirdPartyDisplay ..|> Display
+
 @enduml
