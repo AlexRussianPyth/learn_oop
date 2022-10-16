@@ -50,6 +50,9 @@ WeatherData .up.|> Subject
 Subject -left-> Observer  : Субъект
 
 CurrentConditionsDisplay -right-> WeatherData
+StatisticsDisplay -right-> WeatherData
+ForecastDisplay -right-> WeatherData
+ThirdPartyDisplay -right-> WeatherData
 
 CurrentConditionsDisplay .up.|> Observer
 StatisticsDisplay .up.|> Observer
