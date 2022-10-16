@@ -1,2 +1,37 @@
 @startuml
+class PizzaStore {
+pizza_factory
++order_pizza()
+}
+
+class SimplePizzaFactory {
++create_pizza()
+}
+
+abstract class Pizza {
+{abstract} prepare()
+{abstract} bake()
+{abstract} cut()
+{abstract} box()
+}
+
+class VeggiePizza {
+prepare()
+bake()
+cut()
+box()
+}
+
+class MeatPizza {
+prepare()
+bake()
+cut()
+box()
+}
+
+' Связи
+PizzaStore -right-> SimplePizzaFactory
+SimplePizzaFactory -right-> Pizza
+VeggiePizza -up-|> Pizza
+MeatPizza -up-|> Pizza
 @enduml

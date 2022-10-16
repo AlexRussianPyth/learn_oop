@@ -1,0 +1,17 @@
+@startuml
+abstract class PizzaStore {
+order_pizza()
+{abstract} create_pizza()
+}
+
+class NYStylePizzaStore {
+create_pizza()
+}
+
+class ChicagoStylePizzaStore {
+create_pizza
+}
+
+NYStylePizzaStore -up-|> PizzaStore
+ChicagoStylePizzaStore -up-|> PizzaStore
+@enduml
