@@ -1,16 +1,6 @@
 from abc import ABC
 
 
-class SimplePizzaFactory:
-    def create_pizza(pizza_type: str):
-        pizza = None
-        if pizza_type == 'veggie':
-            pizza = Veggie()
-        elif pizza_type == 'meat':
-            pizza = MeatPizza()
-        return pizza
-
-
 class PizzaStore(ABC):
     def __init__(self, pizza_factory):
         self.pizza_factory = pizza_factory
