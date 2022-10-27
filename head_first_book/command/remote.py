@@ -11,6 +11,10 @@ class SimpleRemoteControl:
         """Выполняем команду"""
         self.slot.execute()
 
+    def cancel(self):
+        """Отменяем команду"""
+        self.slot.undo()
+
 
 class RemoteControl:
     """Пульт с подключаемым устройством, и кнопками включения/выключения"""
@@ -20,8 +24,8 @@ class RemoteControl:
     def set_off_command(self, command: Command):
         self.off_command = command
 
-    def button_was_pressed(self):
+    def press_on_button(self):
         self.on_command.execute()
 
-    def undo(self):
+    def press_off_button(self):
         self.off_command.execute()

@@ -29,8 +29,8 @@ remote2 = RemoteControl()
 remote2.set_on_command(LightOnCommand(light))
 remote2.set_off_command(LightOffCommand(light))
 
-remote2.button_was_pressed()
-remote2.undo()
+remote2.press_on_button()
+remote2.press_off_button()
 
 # Врубим стерео
 stereo = Stereo()
@@ -41,3 +41,5 @@ remote.button_was_pressed()
 
 print(stereo.__dict__)
 
+remote.cancel()
+print(stereo.__dict__)

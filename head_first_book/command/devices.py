@@ -29,6 +29,9 @@ class GarageDoorOnCommand:
 
     def execute(self):
         self.garage_door.up()
+    
+    def undo(self):
+        self.garage_door.down()
 
 
 class GarageDoorOffCommand:
@@ -38,6 +41,9 @@ class GarageDoorOffCommand:
 
     def execute(self):
         self.garage_door.down()
+
+    def undo(self):
+        self.garage_door.up()
 
 
 class Light:
@@ -55,6 +61,9 @@ class LightOnCommand(Command):
     def execute(self):
         self.light.on()
 
+    def undo(self):
+        self.light.off()
+
 
 class LightOffCommand(Command):
     def __init__(self, light):
@@ -62,6 +71,9 @@ class LightOffCommand(Command):
 
     def execute(self):
         self.light.off()
+
+    def undo(self):
+        self.light.on()
 
 
 class Stereo:
@@ -97,3 +109,7 @@ class LoudStereoOnWithDVDCommand(Command):
         self.stereo.on()
         self.stereo.set_dvd()
         self.stereo.set_volume(10)
+
+    def undo(self):
+        self.stereo.off()
+        self.stereo.set_volume(5)
