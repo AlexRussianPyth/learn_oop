@@ -1,0 +1,2 @@
+class UnidentifiedVolumeException(Exception):
+    pass
