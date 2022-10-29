@@ -1,0 +1,24 @@
+@startuml
+abstract class CaffeineBeverage {
++ prepare_recipe()
+# _boil_water()
+# {abstract} _brew()
+# _pour_in_cup()
+# {abstract} _add_condiments()
+}
+
+class Coffee {
+_brew()
+_add_condiments()
+}
+
+class Tea {
+_brew()
+_add_condiments()
+}
+
+
+Coffee -up-|> CaffeineBeverage
+Tea -up-|> CaffeineBeverage
+
+@enduml
