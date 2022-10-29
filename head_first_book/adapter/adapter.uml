@@ -1,0 +1,21 @@
+@startuml
+interface Target {
+request()
+}
+note right
+Это наш целевой интерфейс
+end note
+
+class Adapter {
+request()
+}
+
+class Adaptee {
+specific_request()
+}
+
+' Connections
+Adapter .up.|> Target
+Adapter *-right- Adaptee
+
+@enduml
