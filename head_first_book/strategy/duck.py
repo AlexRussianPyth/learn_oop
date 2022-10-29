@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class FlyBehavior(ABC):
+    """Абстрактный метод, определяющий полет"""
     @abstractmethod
     def fly(self):
         pass
@@ -18,7 +19,7 @@ class FlyNoWay(FlyBehavior):
 
 
 class QuackBehavior(ABC):
-
+    """Абстрактный класс Кряканья"""
     @abstractmethod
     def quack(self):
         pass
@@ -38,9 +39,14 @@ class MuteQuack(QuackBehavior):
     def quack(self):
         print("Silence")
 
+
 class Duck:
     """Общий класс для уток"""
-    def __init__(self, fly_behavior: FlyBehavior, quack_behavior: QuackBehavior):
+    def __init__(
+            self, 
+            fly_behavior: FlyBehavior, 
+            quack_behavior: QuackBehavior
+            ):
         self.fly_behavior = fly_behavior
         self.quack_behavior = quack_behavior
 
@@ -63,8 +69,3 @@ class Duck:
     def display(self):
         pass
 
-
-mullard_duck = Duck(FlyWithWings(), Squeak())
-
-mullard_duck.perform_fly()
-mullard_duck.perform_quack()
