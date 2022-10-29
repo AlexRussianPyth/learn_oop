@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 
 class CaffeineBeverage(ABC):
     def prepare(self):
+        """Это и есть Шаблонный Метод - это метод и это шаблон для алгоритма"""
         self._boil_water()
         self._brew()
         self._pour_in_cup()
