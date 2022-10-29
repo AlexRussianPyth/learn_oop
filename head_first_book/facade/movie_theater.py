@@ -32,4 +32,9 @@ class HomeTheaterFacade:
         self.projector = projector
         self.lights = lights
         self.popcorn = popcorn
+    
+    def watch_movie(self):
+        pass
 
+    def end_movie(self):
+        pass
