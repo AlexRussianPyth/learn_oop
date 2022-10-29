@@ -3,21 +3,21 @@ from abc import ABC, abstractmethod
 
 class CaffeineBeverage(ABC):
     def prepare(self):
-        self.boil_water()
-        self.brew()
-        self.pour_in_cup()
-        self.add_condiments()
+        self._boil_water()
+        self._brew()
+        self._pour_in_cup()
+        self._add_condiments()
 
-    def boil_water(self):
+    def _boil_water(self):
         print('Boiling Water')
 
     @abstractmethod
-    def brew(self):
+    def _brew(self):
         pass
 
-    def pour_in_cup(self):
+    def _pour_in_cup(self):
         print('Pouring into cup')
 
     @abstractmethod
-    def add_condiments(self):
+    def _add_condiments(self):
         pass

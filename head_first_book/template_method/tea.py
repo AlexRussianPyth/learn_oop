@@ -1,20 +1,10 @@
-class Tea:
+from beverage import CaffeineBeverage
 
-    def prepare(self):
-        self.boil_water()
-        self.steep_tea_bag()
-        self.add_lemon()
-        self.pour_in_cup()
 
-    def boil_water(self):
-        print('Boiling Water')
-
-    def steep_tea_bag(self):
+class Tea(CaffeineBeverage):
+    def _brew(self):
         print('Steeping the tea')
 
-    def add_lemon(self):
+    def _add_condiments(self):
         print('Adding Lemon')
-
-    def pour_in_cup(self):
-        print('Pouring into cup')
 
