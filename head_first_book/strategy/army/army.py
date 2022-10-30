@@ -5,8 +5,8 @@ from shoot import ShootBehavior
 class Army:
     """Общий класс для войск"""
     def __init__(
-            self, 
-            move_behavior: MoveBehavior, 
+            self,
+            move_behavior: MoveBehavior,
             shoot_behavior: ShootBehavior
             ):
         self.move_behavior = move_behavior

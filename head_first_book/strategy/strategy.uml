@@ -1,0 +1,54 @@
+@startuml
+
+abstract class "ShootBehavior" {
+{abstract} shoot()
+}
+
+class ShootWithRifles {
++ shoot()
+}
+
+class ShootWithCannons {
++ shoot()
+}
+
+
+abstract class "MoveBehavior" {
+{abstract} move()
+}
+
+class Running {
++ move()
+}
+
+class Walking {
++ move()
+}
+
+class Standing {
++ move()
+}
+
+
+class Army {
+MoveBehavior move_behavior
+ShootBehavior shoot_behavior
++ reload()
++ set_move_behavior()
++ set_shoot_behavior()
++ perform_shooting()
++ perform_move()
+}
+
+' Связи
+ShootWithCannons --|> ShootBehavior
+ShootWithRifles --|> ShootBehavior
+
+Running --|> MoveBehavior
+Walking --|> MoveBehavior
+Standing --|> MoveBehavior
+
+Duck -up-* ShootBehavior
+Duck -up-* MoveBehavior
+
+@enduml
