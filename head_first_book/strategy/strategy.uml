@@ -1,6 +1,6 @@
 @startuml
 
-abstract class "ShootBehavior" {
+interface "ShootBehavior" {
 {abstract} shoot()
 }
 
@@ -13,7 +13,7 @@ class ShootWithCannons {
 }
 
 
-abstract class "MoveBehavior" {
+interface "MoveBehavior" {
 {abstract} move()
 }
 
@@ -52,3 +52,4 @@ Army -up-* ShootBehavior
 Army -up-* MoveBehavior
 
 @enduml
+
