@@ -1,6 +1,6 @@
 from army import Army
 from shoot import ShootWithRifles, ShootWithCannons
-from move import Running, Walking, Standing
+from move import Running, Standing
 
 
 # Полководец получает Армию
@@ -23,4 +23,3 @@ soldiers_army.set_move_behavior(Standing())
 soldiers_army.reload()
 soldiers_army.perform_shooting()
 soldiers_army.perform_move()
-

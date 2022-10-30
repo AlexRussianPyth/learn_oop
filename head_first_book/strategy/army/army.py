@@ -26,4 +26,3 @@ class Army:
 
     def set_move_behavior(self, new_move_behavior: MoveBehavior):
         self.move_behavior = new_move_behavior
-

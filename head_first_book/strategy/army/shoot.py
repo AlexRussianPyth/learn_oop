@@ -16,4 +16,3 @@ class ShootWithRifles(ShootBehavior):
 class ShootWithCannons(ShootBehavior):
     def shoot(self):
         print("Take cannons and shoot!")
-
