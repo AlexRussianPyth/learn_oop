@@ -41,15 +41,16 @@ ShootBehavior shoot_behavior
 }
 
 ' Связи
-ShootWithCannons --|> ShootBehavior
-ShootWithRifles --|> ShootBehavior
+ShootWithCannons .up.|> ShootBehavior
+ShootWithRifles .up.|> ShootBehavior
 
-Running --|> MoveBehavior
-Walking --|> MoveBehavior
-Standing --|> MoveBehavior
+Running .up.|> MoveBehavior
+Walking .up.|> MoveBehavior
+Standing .up.|> MoveBehavior
 
-Army -up-* ShootBehavior
-Army -up-* MoveBehavior
+Army -down-* ShootBehavior
+Army -down-* MoveBehavior
 
 @enduml
+
 
