@@ -48,7 +48,7 @@ Running --|> MoveBehavior
 Walking --|> MoveBehavior
 Standing --|> MoveBehavior
 
-Duck -up-* ShootBehavior
-Duck -up-* MoveBehavior
+Army -up-* ShootBehavior
+Army -up-* MoveBehavior
 
 @enduml
