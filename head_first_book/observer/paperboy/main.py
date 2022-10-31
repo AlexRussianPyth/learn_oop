@@ -25,3 +25,14 @@ if __name__ == '__main__':
             )
     usual_reader.read()
     business_reader.read()
+
+    # Так случилось, что все стали массово отменять подписки
+    usual_reader.cancel_subscribe()
+    business_reader.cancel_subscribe()
+    
+    # Кейс, когда уведомлять некого
+    publisher.get_content_for_newspaper(
+            "Gay's Attacking",
+            'Wa-ha-ha',
+            {'TESLA': 40.1, 'APPLE': 120.6, 'VAZ': 0.1}
+            )

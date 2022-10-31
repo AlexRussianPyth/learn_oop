@@ -9,11 +9,16 @@ class UsualReader(ReaderInterface, SubscriberInterface):
         self.news = str()
         self.comedy = str()
         self.shares_info = dict()
-        self.publisher: Publisher = None
+        self.publisher = None
 
     def subscribe(self, publisher: Publisher):
         self.publisher = publisher
         self.publisher.register_subscriber(self)
+
+    def cancel_subscribe(self):
+        """Отменит нашу подписку"""
+        self.publisher.remove_subscriber(self)
+        self.publisher = None
 
     def update(self, news: str, comedy: str, shares_info: dict):
         self.news = news
@@ -29,11 +34,16 @@ class Businessman(ReaderInterface, SubscriberInterface):
         self.news = str()
         self.comedy = str()
         self.shares_info = dict()
-        self.publisher: Publisher = None
+        self.publisher = None
 
     def subscribe(self, publisher: Publisher):
         self.publisher = publisher
         self.publisher.register_subscriber(self)
+
+    def cancel_subscribe(self):
+        """Отменит нашу подписку"""
+        self.publisher.remove_subscriber(self)
+        self.publisher = None
 
     def update(self, news: str, comedy: str, shares_info: dict):
         self.news = news
