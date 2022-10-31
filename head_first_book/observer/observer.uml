@@ -5,63 +5,44 @@ interface Subject #LightGreen {
 {abstract} notify_observers()
 }
 
-class WeatherData #LightGreen {
+class ConcreteSubject #LightGreen {
 register_observer()
 remove_observer()
 notify_observers()
 
-get_temperature()
-get_humidity()
-get_pressure()
-measurements_changed()
+data_changed()
 }
 
 interface Observer #LightBlue {
 {abstract} update()
 }
 
-class CurrentConditionsDisplay #LightBlue {
+class ConcreteObserver1 #LightBlue {
 +update()
-+display()
++business_method()
 }
 
-class StatisticsDisplay #LightBlue {
+class ConcreteObserver2 #LightBlue {
 +update()
-+display()
++business_method()
 }
 
-interface Display {
-{abstract} display()
-}
-
-class ForecastDisplay #LightBlue {
-+update()
-+display()
-}
-
-class ThirdPartyDisplay #LightBlue {
-+update()
-+display()
+interface BusinessLogic {
+{abstract} business_method()
 }
 
 
 ' Связи
-WeatherData .up.|> Subject
-Subject -left-> Observer  : Субъект
+ConcreteSubject .up.|> Subject
 
-CurrentConditionsDisplay -right-> WeatherData
-StatisticsDisplay -right-> WeatherData
-ForecastDisplay -right-> WeatherData
-ThirdPartyDisplay -right-> WeatherData
+ConcreteObserver1 -right-> ConcreteSubject
+ConcreteObserver2 -right-> ConcreteSubject
 
-CurrentConditionsDisplay .up.|> Observer
-StatisticsDisplay .up.|> Observer
-ForecastDisplay .up.|> Observer
-ThirdPartyDisplay .up.|> Observer
+ConcreteObserver1 .up.|> Observer
+ConcreteObserver2 .up.|> Observer
 
-CurrentConditionsDisplay ..|> Display
-StatisticsDisplay ..|> Display
-ForecastDisplay ..|> Display
-ThirdPartyDisplay ..|> Display
+ConcreteObserver1 ..|> BusinessLogic
+ConcreteObserver2 ..|> BusinessLogic
 
 @enduml
+
