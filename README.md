@@ -11,7 +11,7 @@
 
 ## Наблюдатель
 ![image](https://user-images.githubusercontent.com/78168466/198893398-b4e71fe7-651e-41c6-8bc2-ce6af268259f.png) <br>
-
+Вы нашли себе новую работу - развозить газеты. А как местный Издатель собирается работать с подписчиками? (https://github.com/AlexRussianPyth/learn_oop/tree/main/head_first_book/observer)
 
 
 ## Template Method
