@@ -1,0 +1,49 @@
+@startuml
+
+interface PublisherInterface #LightGreen {
+{abstract} register_subscriber()
+{abstract} remove_subscriber()
+{abstract} issue_newspaper()
+}
+
+class Publisher #LightGreen {
+register_subscriber()
+remove_subscriber()
+issue_newspaper()
+# _new_info_achieved()
+get_content_for_newspaper()
+}
+
+interface SubscriberInterface #LightBlue {
+{abstract} update()
+}
+
+class UsualReader #LightBlue {
++update()
++read()
+}
+
+class Businessman #LightBlue {
++update()
++read()
+}
+
+interface ReaderInterface #Yellow {
+{abstract} read()
+}
+
+
+' Связи
+Publisher .up.|> PublisherInterface
+
+UsualReader -right-> Publisher
+Businessman -right-> Publisher
+
+UsualReader .up.|> SubscriberInterface
+Businessman .up.|> SubscriberInterface
+
+
+UsualReader ..|> ReaderInterface
+Businessman ..|> ReaderInterface
+
+@enduml
