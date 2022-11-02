@@ -1,0 +1,33 @@
+@startuml
+abstract class Object {
+method()
+}
+
+class ConcreteObject1 {
+method()
+}
+
+class ConcreteObject2 {
+method()
+}
+
+abstract class Decorator {
+Object object
+{abstract} method() 
+}
+
+class ConcreteDecorator {
+method()
+} 
+
+
+' Связи
+ConcreteObject1 -up-|> Object
+ConcreteObject2 -up-|> Object
+
+Decorator -up-|> Object
+ConcreteDecorator -up-|> Decorator
+
+ConcreteDecorator --> ConcreteObject1
+ConcreteDecorator --> ConcreteObject2
+@enduml
