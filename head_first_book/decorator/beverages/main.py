@@ -1,8 +1,10 @@
 from beverage import Espresso, DarkRoast, Mocha, Soy
 
 
+# Закажем обычный "пустой" кофе
 beverage = Espresso()
 print(beverage.cost())
+
 # Создаем Черный кофе, добавляем 2 Мокки и Сою
 beverage2 = DarkRoast()
 beverage2 = Mocha(beverage2)

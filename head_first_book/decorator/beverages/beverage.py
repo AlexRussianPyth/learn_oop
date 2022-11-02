@@ -24,6 +24,7 @@ class CondimentDecorator(Beverage, ABC):
 
 
 class Espresso(Beverage):
+    """Базовый напиток"""
     def __init__(self):
         self.description = "Espresso"
 
@@ -32,6 +33,7 @@ class Espresso(Beverage):
 
 
 class DarkRoast(Beverage):
+    """Базовый напиток"""
     def __init__(self):
         self.description = "Dark Roast Coffee"
 
@@ -40,6 +42,7 @@ class DarkRoast(Beverage):
 
 
 class Decaf(Beverage):
+    """Базовый напиток"""
     def __init__(self):
         self.description = "Decaffeinded Coffee"
 
@@ -48,19 +51,12 @@ class Decaf(Beverage):
 
 
 class HouseBlend(Beverage):
+    """Базовый напиток"""
     def __init__(self):
         self.description = "House Blend Coffee"
 
     def cost(self):
         return 0.89
-
-
-class Milk(CondimentDecorator):
-    def cost(self):
-        return 12
-
-    def get_description(self):
-        return 'love and sex'
 
 
 class Mocha(CondimentDecorator):
