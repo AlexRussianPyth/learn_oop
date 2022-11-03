@@ -1,15 +1,25 @@
 class SimplePizzaFactory:
-    def create_pizza(pizza_type: str):
+    def create_pizza(self, pizza_type: str):
         pizza = None
-        if pizza_type == 'veggie':
+        if pizza_type == "veggie":
             pizza = Veggie()
-        elif pizza_type == 'meat':
+        elif pizza_type == "meat":
             pizza = MeatPizza()
         return pizza
 
 
+class Veggie:
+    def __init__(self):
+        self.description = "Veggie"
+
+
+class MeatPizza:
+    def __init__(self):
+        self.description = "Meat Pizza"
+
+
 class PizzaShop:
-    def __init__(self, pizza_factory):
+    def __init__(self, pizza_factory: SimplePizzaFactory):
         self.pizza_factory = pizza_factory
 
     def order_pizza(self, pizza_type: str):
@@ -21,4 +31,4 @@ class PizzaShop:
         pizza.cut()
         pizza.box()
 
-        returnn pizza
+        return pizza
