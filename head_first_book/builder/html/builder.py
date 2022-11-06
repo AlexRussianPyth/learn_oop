@@ -1,8 +1,10 @@
-from element import HtmlElement 
+from element import HtmlElement
 
 
 class HtmlBuilder:
-    """Объект, который занимается сложной операцией по построению HTML элементов"""
+    """
+    Объект, который занимается сложной операцией по построению HTML элементов
+    """
     def __init__(self, root_name: str):
         self.root_name = root_name
         self.__root = HtmlElement(name=root_name)
@@ -21,4 +23,3 @@ class HtmlBuilder:
 
     def __str__(self):
         return str(self.__root)
-
