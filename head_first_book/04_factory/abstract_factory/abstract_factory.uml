@@ -1,0 +1,44 @@
+@startuml
+abstract class AbstractFactory {
+{abstract} create_object()
+{abstract} create_object_2
+}
+
+class ConcreteFactory1 {
+create_object()
+create_object_2
+}
+
+class ConcreteFactory2 {
+create_object()
+create_object_2
+}
+
+abstract class Interface1 {
+}
+
+abstract class Interface2 {
+}
+
+class ObjectF1I1
+class ObjectF1I2
+class ObjectF2I1
+class ObjectF2I2
+
+
+' Connections
+ConcreteFactory1 -up-|> AbstractFactory
+ConcreteFactory2 -up-|> AbstractFactory
+
+ObjectF1I1 .up.|> Interface1
+ObjectF1I2 .up.|> Interface2
+ObjectF2I1 .up.|> Interface1
+ObjectF2I2 .up.|> Interface2
+
+
+ObjectF1I1 <-- ConcreteFactory1
+ObjectF1I2 <-- ConcreteFactory1
+ObjectF2I1 <-- ConcreteFactory2
+ObjectF2I2 <-- ConcreteFactory2
+
+@enduml
