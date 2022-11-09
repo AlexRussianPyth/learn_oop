@@ -1,40 +1,19 @@
-from abc import ABC, abstractmethod
+from factories import OSXUserInterfaceFactory, UbuntuUserInterfaceFactory
 
 
-class UserInterfaceFactory(ABC):
-    """Абстрактная Фабрика для создания UI в различных ОС"""
-    @abstractmethod
-    def make_window(self):
-        pass
+if __name__ == "__main__":
+    # Создаем Фабрику для OSX
+    osx_factory = OSXUserInterfaceFactory()
+    osx_window = osx_factory.make_window()
+    osx_menu = osx_factory.make_menu()
 
-    @abstractmethod
-    def make_menu(self):
-        pass
+    print(osx_window)
+    print(osx_menu)
 
+    # Создаем Фабрику для Ubuntu
+    ubuntu_factory = UbuntuUserInterfaceFactory()
+    ubuntu_window = ubuntu_factory.make_window()
+    ubuntu_menu = ubuntu_factory.make_menu()
 
-class OSXUserInterfaceFactory(UserInterfaceFactory):
-    def make_window(self):
-        return OsXWindow()
-
-    def make_menu(self):
-        return OsXMenu()
-
-
-class UbuntuUserInterfaceFactory(UserInterfaceFactory):
-    def make_window(self):
-        return UbuntuWindow()
-
-    def make_menu(self):
-        return UbuntuMenu()
-
-
-
-# Фабрика Солярис
-
-
-
-# Окно
-
-
-
-# Меню
+    print(ubuntu_window)
+    print(ubuntu_menu)
