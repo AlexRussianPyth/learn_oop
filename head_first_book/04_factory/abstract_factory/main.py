@@ -1,19 +1,16 @@
 from factories import OSXUserInterfaceFactory, UbuntuUserInterfaceFactory
+from designer import UIDesigner
 
 
 if __name__ == "__main__":
     # Создаем Фабрику для OSX
     osx_factory = OSXUserInterfaceFactory()
-    osx_window = osx_factory.make_window()
-    osx_menu = osx_factory.make_menu()
-
-    print(osx_window)
-    print(osx_menu)
+    designer = UIDesigner(osx_factory)
+    ui = designer.create_ui()
+    print(ui)
 
     # Создаем Фабрику для Ubuntu
     ubuntu_factory = UbuntuUserInterfaceFactory()
-    ubuntu_window = ubuntu_factory.make_window()
-    ubuntu_menu = ubuntu_factory.make_menu()
-
-    print(ubuntu_window)
-    print(ubuntu_menu)
+    designer2 = UIDesigner(ubuntu_factory)
+    ui = designer2.create_ui()
+    print(ui)

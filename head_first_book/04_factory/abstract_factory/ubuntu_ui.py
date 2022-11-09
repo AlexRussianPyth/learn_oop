@@ -4,7 +4,7 @@ class UbuntuWindow:
     """
     def __init__(self):
         self.description = "Ubuntu Window"
-    
+
     def __str__(self):
         return f"Это {self.description}"
 
