@@ -12,7 +12,7 @@ class Bottle:
     @classmethod
     def get_instance(cls):
         """Покупает бутылку, или возвращает уже купленную"""
-        if cls._instance == None:
+        if cls._instance is None:
             print("Братан, сгоняй за бутылочкой")
             cls._instance = cls.__new__(cls)
             cls._instance.volume = 500
