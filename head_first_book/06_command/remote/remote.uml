@@ -1,0 +1,19 @@
+@startuml
+interface Command {
+{abstract} execute()
+}
+
+class LightOnCommand {
+light Light
+execute(light.on())
+}
+
+class Light {
+on()
+off()
+}
+
+LightOnCommand .up.|> Command
+Light -left-> LightOnCommand
+@enduml
+
