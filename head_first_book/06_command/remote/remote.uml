@@ -13,7 +13,15 @@ on()
 off()
 }
 
+class Remote {
+command Command
+execute()
+undo()
+}
+
 LightOnCommand .up.|> Command
 Light -left-> LightOnCommand
+Remote -left-> Command
 @enduml
+
 
