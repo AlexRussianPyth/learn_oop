@@ -1,0 +1,37 @@
+@startuml
+interface Command {
+{abstract} execute()
+}
+
+class SushiCookMakeSushiOrder {
+sushi_cook
+execute()
+}
+
+class ShaurmistMakeShaurmaOrder {
+shaurmist
+execute()
+}
+
+class SushiCook {
+make_roll()
+grind_knifes()
+}
+
+
+class Shaurmist {
+make_shaurma()
+smoke()
+}
+
+class Kitchen {
+command Command
+execute()
+}
+
+SushiCookMakeSushiOrder .up.|> Command
+ShaurmistMakeShaurmaOrder .up.|> Command
+SushiCook -left-> SushiCookMakeSushiOrder
+Shaurmist -left-> ShaurmistMakeShaurmaOrder
+Kitchen -right-> Command
+@enduml
