@@ -1,5 +1,10 @@
 from clothes import ClothesPicker
 from thing import Thing
+from thermometers import (
+        CelsiusThermometer,
+        FarenheitThermometer,
+        FarenheitAdapter
+        )
 
 
 things = [
@@ -9,8 +14,15 @@ things = [
         Thing(name="Шорты", celsius_temp_range=(25, 40)),
         ]
 
+celsius = CelsiusThermometer()
+farenheit = FarenheitThermometer()
+adapter = FarenheitAdapter(farenheit)
 
-picker = ClothesPicker(things)
+
+picker1 = ClothesPicker(things, celsius)
+picker2 = ClothesPicker(things, adapter)
+
 
 if __name__ == "__main__":
-    print(picker)
+    print(picker1.get_clothes_by_temp())
+    print(picker2.get_clothes_by_temp())
