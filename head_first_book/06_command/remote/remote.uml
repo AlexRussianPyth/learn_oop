@@ -1,0 +1,27 @@
+@startuml
+interface Command {
+{abstract} execute()
+}
+
+class LightOnCommand {
+light Light
+execute(light.on())
+}
+
+class Light {
+on()
+off()
+}
+
+class Remote {
+command Command
+execute()
+undo()
+}
+
+LightOnCommand .up.|> Command
+Light -left-> LightOnCommand
+Remote -left-> Command
+@enduml
+
+

@@ -1,0 +1,31 @@
+@startuml
+interface Command {
+{abstract} execute()
+{abstract} undo()
+}
+
+class ConcreteCommand {
+receiver
++execute(receiver.action())
++undo()
+}
+
+class Receiver {
+action()
+}
+
+class Invoker {
+command Command
++set_command()
++execute()
+}
+
+class Client
+
+ConcreteCommand .up.|> Command
+ConcreteCommand -left-> Receiver
+Client -right-> Receiver
+Client --> ConcreteCommand
+Invoker --> Command
+@enduml
+

@@ -3,10 +3,7 @@ from errors import UnidentifiedVolumeException
 
 
 class GarageDoor:
-    
-    def __init__(self):
-        pass
-
+    """Гаражная дверь нашего умного дома"""
     def up(self):
         print("Garage Door Up")
 
@@ -16,26 +13,27 @@ class GarageDoor:
     def stop(self):
         print("Garage Door Stopped")
 
-    def lightOn(self):
-        print("Light in garage is on")
+    def light_on(self):
+        print("Garage light is on")
 
-    def lightOff(self):
-        print("Light in garage is off")
+    def light_off(self):
+        print("Garage light is off")
 
 
-class GarageDoorOnCommand:
+class GarageDoorOnCommand(Command):
+    """Объект Команды, которые открывает гаражную дверь"""
     def __init__(self, garage_door: GarageDoor):
         self.garage_door = garage_door
 
     def execute(self):
         self.garage_door.up()
-    
+
     def undo(self):
         self.garage_door.down()
 
 
-class GarageDoorOffCommand:
-    """Объект-Команда для опускания гаражной двери"""
+class GarageDoorOffCommand(Command):
+    """ Объект-Команда для опускания гаражной двери"""
     def __init__(self, garage_door: GarageDoor):
         self.garage_door = garage_door
 
@@ -47,16 +45,18 @@ class GarageDoorOffCommand:
 
 
 class Light:
+    """ Класс, который определяет свет в нашем умном доме"""
     def on(self):
         print("Light is on")
-    
+
     def off(self):
         print("Light is off")
 
 
 class LightOnCommand(Command):
-    def __init__(self, light):
-        self.light = light  # light - класс, управляющий светом
+    """Команда, которая включит свет"""
+    def __init__(self, light: Light):
+        self.light = light
 
     def execute(self):
         self.light.on()
@@ -66,8 +66,9 @@ class LightOnCommand(Command):
 
 
 class LightOffCommand(Command):
-    def __init__(self, light):
-        self.light = light  # light - класс, управляющий светом
+    """Команда, которая выключит свет"""
+    def __init__(self, light: Light):
+        self.light = light
 
     def execute(self):
         self.light.off()
@@ -77,7 +78,8 @@ class LightOffCommand(Command):
 
 
 class Stereo:
-    def __init__(self, disc="cd", volume: int = 5):
+    """Стерео-система нашего умного дома"""
+    def __init__(self, disc: str = "cd", volume: int = 5):
         self.disc = disc
         self.volume = volume
 
@@ -94,7 +96,7 @@ class Stereo:
         self.disc = "dvd"
 
     def set_volume(self, volume: int):
-        if volume >= 1 and volume <= 10:  
+        if volume >= 1 and volume <= 10:
             self.volume = volume
         else:
             raise UnidentifiedVolumeException
