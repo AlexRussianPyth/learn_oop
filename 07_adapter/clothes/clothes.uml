@@ -1,0 +1,22 @@
+@startuml
+interface CelsiusThermometer {
+get_temperature()
+}
+note right
+Это наш целевой интерфейс
+end note
+
+class FarenheitAdapter {
+get_temperature()
+}
+
+class FarenheitThermometer {
+get_temperature()
+}
+
+' Connections
+FarenheitAdapter .up.|> CelsiusThermometer
+FarenheitAdapter *-right- FarenheitThermometer
+
+@enduml
+
