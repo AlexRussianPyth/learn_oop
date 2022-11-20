@@ -2,6 +2,7 @@ import abc
 
 
 class Duck(abc.ABC):
+    """Интерфейс для Утки"""
     @abc.abstractmethod
     def quack(self):
         pass
@@ -15,6 +16,7 @@ class Turkey(abc.ABC):
     """Абстрактный интерфейс для индюшки"""
     @abc.abstractmethod
     def gobble(self):
+        """Умеет жрать"""
         pass
 
     @abc.abstractmethod
@@ -39,8 +41,10 @@ class WildTurkey(Turkey):
         print("I'm flying a short distance(((")
 
 
-# В первую очередь реализовываем интерфейс Клиента. Допустим, нам придется подменить часть уток индюшками
-# Клиентом будет Утка, которая хочет подключить к себе внешний ресурс - Индюшку
+"""В первую очередь реализовываем интерфейс Клиента. Допустим, нам придется
+подменить часть уток индюшками, Клиентом будет Утка, которая хочет подключить
+к себе внешний ресурс - Индюшку"""
+
 
 class TurkeyAdapter(Duck):
     def __init__(self, turkey: Turkey):
@@ -51,4 +55,5 @@ class TurkeyAdapter(Duck):
 
     def fly(self):
         for _ in range(5):
-            self.turkey.fly()  # Наша Индюшка старается соответствовать и летит по чуть-чуть
+            # Наша Индюшка старается соответствовать и летит по чуть-чуть
+            self.turkey.fly()
