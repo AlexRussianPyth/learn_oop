@@ -26,13 +26,19 @@ class Projector:
 
 
 class HomeTheaterFacade:
-    def __init__(self, amplifier, streaming_player, projector, lights, popcorn):
-        self.apmlifier = amplifier
+    def __init__(
+            self,
+            amplifier,
+            streaming_player,
+            projector,
+            lights,
+            popcorn):
+        self.amplifier = amplifier
         self.streaming_player = streaming_player
         self.projector = projector
         self.lights = lights
         self.popcorn = popcorn
-    
+
     def watch_movie(self):
         pass
 
