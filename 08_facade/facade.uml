@@ -1,0 +1,21 @@
+@startuml
+
+class Client
+
+class Facade {
+// Simple Methods
+}
+
+package ComplicatedSystem <<Rectangle>> {
+  class Class1
+  class Class2
+  class Class3
+  class Class4
+}
+
+Client -right-> Facade
+Facade -- ComplicatedSystem
+
+@enduml
+
+
