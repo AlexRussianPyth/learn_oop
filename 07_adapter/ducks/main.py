@@ -2,6 +2,7 @@ from duck import Duck, MallardDuck, WildTurkey, TurkeyAdapter
 
 
 class TestDuck:
+    """Класс для тестирования Уток"""
     def __init__(self, duck: Duck):
         self.duck = duck
 
