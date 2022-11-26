@@ -7,4 +7,3 @@ class Tea(CaffeineBeverage):
 
     def _add_condiments(self):
         print('Adding Lemon')
-

@@ -1,2 +1,0 @@
-class MenuSizeException(Exception):
-    pass
