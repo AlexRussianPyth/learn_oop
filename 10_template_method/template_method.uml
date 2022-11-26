@@ -1,0 +1,30 @@
+@startuml
+abstract class AbstractClass {
+template_method()
+step1()
+{abstract} step2()
+step3()
+final_step()
+}
+note right of AbstractClass
+def template_method():
+   step1()
+   step2()
+   step3()
+   final_step()
+end note
+
+class ConcreteClassOne {
+step2()
+}
+
+class ConcreteClassTwo {
+step2()
+}
+
+' Connections
+ConcreteClassOne -up-|> AbstractClass
+ConcreteClassTwo -up-|> AbstractClass
+
+@enduml
+
