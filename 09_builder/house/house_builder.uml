@@ -1,0 +1,45 @@
+@startuml
+
+class House {
+building_type str
+wall_material str
+doors str
+windows str
+}
+
+
+class IHouseBuilder {
+{abstract} set_building_type()
+{abstract} set_wall_material()
+{abstract} set_number_windows()
+{abstract} set_number_walls()
+{abstract} get_result()
+}
+
+class HouseBuilder {
+house House()
+set_building_type()
+set_wall_material()
+set_number_windows()
+set_number_walls()
+get_result()
+}
+
+
+
+class IglooDirector {
+{static} construct()
+}
+
+class HouseboatDirector {
+{static} construct()
+}
+
+' Connections
+House -up-* HouseBuilder
+HouseBuilder -up-|> IHouseBuilder
+IglooDirector --> HouseBuilder
+HouseboatDirector --> HouseBuilder
+
+
+@enduml
