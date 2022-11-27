@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 
 from exporters import (
         VideoExporter,
@@ -11,10 +11,12 @@ from exporters import (
 
 class ExporterFactory(ABC):
     """Factory that represents combination of video and audio codecs."""
+    @abstractmethod
     def get_video_exporter(self) -> VideoExporter:
         """Returns a new video exporter instance"""
         pass
 
+    @abstractmethod
     def get_audio_exporter(self) -> AudioExporter:
         """Returns a new audio exporter instance"""
         pass
