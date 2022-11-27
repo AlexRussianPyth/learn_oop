@@ -1,11 +1,11 @@
-from factory import Singleton, singleton_factory
+from factory import ConcreteClass, singleton_factory
 
 
 if __name__ == "__main__":
-    object1 = singleton_factory(Singleton)
+    object1 = singleton_factory(ConcreteClass)
     print(object1.get_state())
 
-    object2 = singleton_factory(Singleton)
+    object2 = singleton_factory(ConcreteClass)
     object2.set_state("Love me tender")
     print(object1.get_state())
 

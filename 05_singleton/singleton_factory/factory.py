@@ -1,7 +1,7 @@
 from functools import lru_cache
 
 
-class Singleton:
+class ConcreteClass:
     """
     Класс, симулирующий обычный объект с данными и поведением
     """

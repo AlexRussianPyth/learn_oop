@@ -9,10 +9,12 @@ class ShootBehavior(ABC):
 
 
 class ShootWithRifles(ShootBehavior):
+    """Реализация Стрельбы"""
     def shoot(self):
         print("Rifle Shooting")
 
 
 class ShootWithCannons(ShootBehavior):
+    """Реализация Стрельбы"""
     def shoot(self):
         print("Take cannons and shoot!")

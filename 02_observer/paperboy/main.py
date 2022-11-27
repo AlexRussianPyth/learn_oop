@@ -2,7 +2,9 @@ from publisher import Publisher
 from readers import UsualReader, Businessman
 
 
+# Издатель
 publisher = Publisher()
+# Наблюдатели
 usual_reader = UsualReader()
 business_reader = Businessman()
 
@@ -29,7 +31,7 @@ if __name__ == '__main__':
     # Так случилось, что все стали массово отменять подписки
     usual_reader.cancel_subscribe()
     business_reader.cancel_subscribe()
-    
+
     # Кейс, когда уведомлять некого
     publisher.get_content_for_newspaper(
             "Gay's Attacking",

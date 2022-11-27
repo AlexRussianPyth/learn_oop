@@ -1,0 +1,69 @@
+@startuml
+Interface ExporterFactory {
+{abstract} get_video_exporter()
+{abstract} get_audio_exporter()
+}
+
+class FastExporter {
+get_video_exporter()
+get_audio_exporter()
+}
+
+
+class SlowExporter {
+get_video_exporter()
+get_audio_exporter()
+}
+
+interface VideoExporter {
+{abstract} prepare_export()
+{abstract} do_export()
+}
+
+
+interface AudioExporter {
+{abstract} prepare_export()
+{abstract} do_export()
+}
+
+
+class LosslessVideoExporter {
+prepare_export()
+do_export()
+}
+
+
+class H264BPVideoExporter {
+prepare_export()
+do_export()
+}
+
+class AACAudioExporter {
+prepare_export()
+do_export()
+}
+
+class WAVAudioExporter {
+prepare_export()
+do_export()
+}
+
+
+' Connections
+SlowExporter .up.|> ExporterFactory
+FastExporter .up.|> ExporterFactory
+
+LosslessVideoExporter .down.|> VideoExporter
+H264BPVideoExporter .down.|> VideoExporter
+AACAudioExporter .down.|> AudioExporter
+WAVAudioExporter .down.|> AudioExporter
+
+FastExporter --> H264BPVideoExporter
+FastExporter --> WAVAudioExporter
+
+SlowExporter --> LosslessVideoExporter
+SlowExporter --> AACAudioExporter
+
+
+@enduml
+

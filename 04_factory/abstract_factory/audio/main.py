@@ -14,7 +14,6 @@ def read_exporter() -> ExporterFactory | None:
         quality = str(input("Enter desired output quality (low, high): "))
         if quality in factories:
             return factories[quality]
-        return None
 
 
 def export_data(factory: ExporterFactory):
@@ -27,11 +26,15 @@ def export_data(factory: ExporterFactory):
     audio_exporter.prepare_export("placeholder_for_audio_data")
 
     # do the export
-    folder = pathlib.Path("/usr/tmp/video")
+    folder = pathlib.Path(__file__)
+    print(folder)
     video_exporter.do_export(folder)
     audio_exporter.do_export(folder)
 
 
 if __name__ == "__main__":
     factory = read_exporter()
-    export_data(factory)
+    if factory:
+        export_data(factory)
+    else:
+        print("Exporter indefined")

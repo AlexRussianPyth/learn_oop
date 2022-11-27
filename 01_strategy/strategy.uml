@@ -1,56 +1,28 @@
 @startuml
 
-interface "ShootBehavior" {
-{abstract} shoot()
+class ConcreteClass {
+Behavior behavior
++ method()
++ set_behavior()
++ other_method()
 }
 
-class ShootWithRifles {
-+ shoot()
+interface "Behavior" {
+{abstract} method()
 }
 
-class ShootWithCannons {
-+ shoot()
+class BehaviorRealisationOne {
++ method()
 }
 
-
-interface "MoveBehavior" {
-{abstract} move()
-}
-
-class Running {
-+ move()
-}
-
-class Walking {
-+ move()
-}
-
-class Standing {
-+ move()
-}
-
-
-class Army {
-MoveBehavior move_behavior
-ShootBehavior shoot_behavior
-+ reload()
-+ set_move_behavior()
-+ set_shoot_behavior()
-+ perform_shooting()
-+ perform_move()
+class BehaviorRealisationTwo {
++ method()
 }
 
 ' Связи
-ShootWithCannons .up.|> ShootBehavior
-ShootWithRifles .up.|> ShootBehavior
+ConcreteClass -down-* Behavior
 
-Running .up.|> MoveBehavior
-Walking .up.|> MoveBehavior
-Standing .up.|> MoveBehavior
-
-Army -down-* ShootBehavior
-Army -down-* MoveBehavior
+BehaviorRealisationOne .up.|> Behavior
+BehaviorRealisationTwo .up.|> Behavior
 
 @enduml
-
-
