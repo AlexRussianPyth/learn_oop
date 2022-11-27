@@ -10,16 +10,17 @@ soldiers_army = Army(
             )
 
 
-# Начинаем боевые действия
-soldiers_army.reload()
-soldiers_army.perform_shooting()
-soldiers_army.perform_move()
+if __name__ == "__main__":
+    # Начинаем боевые действия
+    soldiers_army.reload()
+    soldiers_army.perform_shooting()
+    soldiers_army.perform_move()
 
-# Солдаты устают, их заменяют артиллеристы
-soldiers_army.set_shoot_behavior(ShootWithCannons())
-soldiers_army.set_move_behavior(Standing())
+    # Солдаты устают, их заменяют артиллеристы
+    soldiers_army.set_shoot_behavior(ShootWithCannons())
+    soldiers_army.set_move_behavior(Standing())
 
-# Продолжаем воеватьол
-soldiers_army.reload()
-soldiers_army.perform_shooting()
-soldiers_army.perform_move()
+    # Продолжаем воеватьол
+    soldiers_army.reload()
+    soldiers_army.perform_shooting()
+    soldiers_army.perform_move()
